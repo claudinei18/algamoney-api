@@ -1,8 +1,9 @@
 package com.example.algamoneyapi.resource;
 
 import com.example.algamoneyapi.event.RecursoCriadoEvent;
-import com.example.algamoneyapi.model.Categoria;
-import com.example.algamoneyapi.repository.CategoriaRepository;
+import com.example.algamoneyapi.model.Pessoa;
+import com.example.algamoneyapi.repository.PessoaRepository;
+import com.example.algamoneyapi.repository.PessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
@@ -16,36 +17,35 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/categorias")
-public class CategoriaResource {
-
+@RequestMapping(value = "/pessoas")
+public class PessoaResource {
     @Autowired
-    private CategoriaRepository categoriaRepository;
+    private PessoaRepository pessoaRepository;
 
     @Autowired
     private ApplicationEventPublisher publisher;
 
     @GetMapping
-    public List<Categoria> listar(){
-        return categoriaRepository.findAll();
+    public List<Pessoa> listar(){
+        return pessoaRepository.findAll();
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Categoria> criar(@Valid @RequestBody Categoria categoria, HttpServletResponse response){
-        Categoria categoriaSalva = categoriaRepository.save(categoria);
+    public ResponseEntity<Pessoa> criar(@Valid @RequestBody Pessoa Pessoa, HttpServletResponse response){
+        Pessoa pessoaSalva = pessoaRepository.save(Pessoa);
 
-        publisher.publishEvent(new RecursoCriadoEvent(this, response, categoriaSalva.getCodigo()));
+        publisher.publishEvent(new RecursoCriadoEvent(this, response, pessoaSalva.getCodigo()));
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(categoriaSalva);
+        return ResponseEntity.status(HttpStatus.CREATED).body(pessoaSalva);
     }
 
     @GetMapping("/{codigo}")
     public ResponseEntity<?> buscarPeloCodigo(@PathVariable("codigo") Long codigo){
-        Categoria categoria = categoriaRepository.findOne(codigo);
-        if(categoria == null){
+        Pessoa pessoa = pessoaRepository.findOne(codigo);
+        if(pessoa == null){
             return ResponseEntity.notFound().build();
         }else{
-            return ResponseEntity.ok(categoria);
+            return ResponseEntity.ok(pessoa);
         }
     }
 }
