@@ -13,3 +13,6 @@ CREATE TABLE pessoa(
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO pessoa (nome, logradouro, numero, bairro, complemento, cep, cidade, estado, ativo) VALUE ('Claudinei Gomes Mendes', 'General Clark', '1735', 'Novo Progresso', 'CASA', '32.115-140', 'Contagem', 'MG', true);
+INSERT INTO pessoa (nome, logradouro, numero, bairro, complemento, cep, cidade, estado, ativo) VALUE ('Teste 2', 'General Clark', '1735', 'Novo Progresso', 'CASA', '32.115-140', 'Contagem', 'MG', true);
+INSERT INTO pessoa (nome, logradouro, numero, bairro, complemento, cep, cidade, estado, ativo) VALUE ('Teste 3', 'General Clark', '1735', 'Novo Progresso', 'CASA', '32.115-140', 'Contagem', 'MG', true);
+INSERT INTO pessoa (nome, logradouro, numero, bairro, complemento, cep, cidade, estado, ativo) VALUE ('Teste 4', 'General Clark', '1735', 'Novo Progresso', 'CASA', '32.115-140', 'Contagem', 'MG', true);
