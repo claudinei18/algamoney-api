@@ -6,6 +6,7 @@ import javax.persistence.Embeddable;
 public class Endereco {
     String logradouro;
     String numero;
+    String bairro;
     String complemento;
     String cep;
     String cidade;
@@ -25,6 +26,14 @@ public class Endereco {
 
     public void setNumero(String numero) {
         this.numero = numero;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
     }
 
     public String getComplemento() {
