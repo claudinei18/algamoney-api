@@ -51,4 +51,8 @@ public class Pessoa {
     public void setAtivo(Boolean ativo) {
         this.ativo = ativo;
     }
+
+    public boolean isInativo(){
+        return !this.ativo;
+    }
 }
