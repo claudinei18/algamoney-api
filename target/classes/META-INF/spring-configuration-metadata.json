@@ -19,12 +19,6 @@
       "defaultValue": "http:\/\/localhost:8000",
       "name": "algamoney.origin-permitida",
       "type": "java.lang.String"
-    },
-    {
-      "sourceType": "com.example.algamoney.api.config.property.AlgamoneyApiProperty$Seguranca",
-      "defaultValue": false,
-      "name": "algamoney.seguranca.enable-https",
-      "type": "java.lang.Boolean"
     }
   ]
 }
